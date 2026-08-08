@@ -9,14 +9,18 @@
 MIA 5100 Project Report Download*/
 *.zip
 
-# Grading outputs - contain student group scores and quoted evidence
+# Grading outputs - contain student group scores and quoted evidence.
+# Every run writes to results/run_<timestamp>/
+results/
+full_run.log
+
+# Legacy loose-file output from earlier versions of the script
 grading_summary_*.csv
 grading_detail_*.csv
 grading_results_*.csv
 grading_results_*.xlsx
 grading_report_*.md
 grading_raw_*.json
-full_run.log
 
 # Editor / Python
 .vscode/

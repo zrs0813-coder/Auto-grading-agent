@@ -84,13 +84,22 @@ python grading_script.py --model claude-opus-5
 
 ## Output
 
-| File | Contents |
-|---|---|
-| `grading_summary_<ts>.csv` | One row per group: track, total, percentage |
-| `grading_detail_<ts>.csv` | One row per criterion: score, evidence, deduction, feedback |
-| `grading_results_<ts>.xlsx` | Same data as Summary + Criterion Detail sheets |
-| `grading_report_<ts>.md` | Readable report: gradebook, both rubrics, per-group breakdown |
-| `grading_raw_<ts>.json` | Full structured results |
+Each run writes into its own timestamped subfolder, so results never scatter
+across the project root and past runs stay intact side by side:
+
+```
+results/
+  run_20260808_143532/
+    summary.csv        One row per group: track, total, percentage
+    detail.csv         One row per criterion: score, evidence, deduction, feedback
+    results.xlsx       Same data as Summary + Criterion Detail sheets
+    report.md          Readable report: gradebook, both rubrics, per-group breakdown
+    raw.json           Full structured results
+    rubrics_used.json  Snapshot of the rubrics this run graded against
+```
+
+Change the parent folder with `--outdir`. `results/` is gitignored — the
+outputs contain student scores and quoted evidence, and this repo is public.
 
 ## Notes
 

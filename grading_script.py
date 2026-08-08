@@ -56,6 +56,10 @@ ROOT_FOLDER = (
 # The Project Instruction document (used to derive both rubrics).
 INSTRUCTIONS_FILE = "MIA5100 - Project - Instructions.pdf"
 
+# Parent folder for output. Each run writes into results/run_<timestamp>/
+# rather than dropping loose files into the project root.
+OUTPUT_ROOT = "results"
+
 # Total points available per report.
 TOTAL_POINTS = 30
 
@@ -857,7 +861,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--limit", type=int, default=0, help="Only grade the first N groups")
     p.add_argument("--groups", default="", help="Only grade these group numbers, e.g. 6,12")
     p.add_argument("--refresh-rubrics", action="store_true", help="Rebuild cached rubrics")
-    p.add_argument("--outdir", default=".", help="Where to write the output files")
+    p.add_argument("--outdir", default=OUTPUT_ROOT,
+                   help=f"Parent folder for run subfolders (default: {OUTPUT_ROOT})")
     return p.parse_args()
 
 
@@ -903,15 +908,17 @@ def main() -> None:
     only = [int(x) for x in re.findall(r"\d+", args.groups)] or None
     results = grader.run(root, limit=args.limit, only=only)
 
-    outdir = Path(args.outdir)
-    outdir.mkdir(parents=True, exist_ok=True)
+    # Each run gets its own timestamped subfolder, so results never scatter
+    # across the project root and past runs stay intact side by side.
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    rundir = Path(args.outdir) / f"run_{stamp}"
+    rundir.mkdir(parents=True, exist_ok=True)
 
-    detail_csv = outdir / f"grading_detail_{stamp}.csv"
-    summary_csv = outdir / f"grading_summary_{stamp}.csv"
-    excel = outdir / f"grading_results_{stamp}.xlsx"
-    markdown = outdir / f"grading_report_{stamp}.md"
-    raw_json = outdir / f"grading_raw_{stamp}.json"
+    summary_csv = rundir / "summary.csv"
+    detail_csv = rundir / "detail.csv"
+    excel = rundir / "results.xlsx"
+    markdown = rundir / "report.md"
+    raw_json = rundir / "raw.json"
 
     write_csv(results, detail_csv)
     write_summary_csv(results, summary_csv)
@@ -919,12 +926,22 @@ def main() -> None:
     write_markdown(results, grader.rubrics, markdown)
     raw_json.write_text(json.dumps(results, indent=2), encoding="utf-8")
 
+    # Snapshot the rubrics actually used, so a run folder is self-describing.
+    (rundir / "rubrics_used.json").write_text(
+        json.dumps(
+            {"model": args.model, "total_points": TOTAL_POINTS,
+             "rubrics": {str(k): v for k, v in grader.rubrics.items()}},
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
     print()
     print_console_summary(results)
     print()
-    print("Output files:")
-    for f in (summary_csv, detail_csv, excel, markdown, raw_json):
-        print(f"  {f}")
+    print(f"Output folder: {rundir}/")
+    for f in sorted(rundir.iterdir()):
+        print(f"  {f.name}")
 
 
 if __name__ == "__main__":
