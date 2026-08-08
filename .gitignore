@@ -1,2 +1,24 @@
 # put env files here
 .env
+# any pdf and docx files
+*.pdf
+*.docx
+
+# Student submissions - NEVER commit. This repo is public, and the download
+# folder contains student names, submission comments, and their reports.
+MIA 5100 Project Report Download*/
+*.zip
+
+# Grading outputs - contain student group scores and quoted evidence
+grading_summary_*.csv
+grading_detail_*.csv
+grading_results_*.csv
+grading_results_*.xlsx
+grading_report_*.md
+grading_raw_*.json
+full_run.log
+
+# Editor / Python
+.vscode/
+__pycache__/
+*.pyc

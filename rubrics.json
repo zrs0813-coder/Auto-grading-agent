@@ -1,0 +1,108 @@
+{
+  "model": "claude-opus-5",
+  "total_points": 30,
+  "rubrics": {
+    "1": {
+      "track": 1,
+      "track_name": "Hands-On AI System Development Project (Build & Evaluate)",
+      "criteria": [
+        {
+          "criterion": "IEEE Conference Format & Structure",
+          "max_points": 2,
+          "description": "The report is presented as an IEEE conference paper. Judge this on structural markers only: an abstract at the top, index terms/keywords, numbered sections and subsections, figure/table captions, and a numbered IEEE-style reference list. Award FULL credit if the report is broadly IEEE-like. A single missing element (for example index terms) is NOT a deduction. Deduct only if the report plainly disregards the template altogether - for example an unstructured essay with no sections and no formal reference list."
+        },
+        {
+          "criterion": "Abstract",
+          "max_points": 2,
+          "description": "The report includes an abstract that conveys the objectives, the approach taken, and the key findings/results of the built system. Full credit if an abstract is present and touches on the purpose and outcome of the work in any reasonable way. Deduct only if the abstract is entirely missing or contains no indication of what was done or found."
+        },
+        {
+          "criterion": "Introduction / Background",
+          "max_points": 3,
+          "description": "The report introduces the field or application domain, explains why it matters, defines or explains key concepts/terms, and states the scope and objectives of the project. Full credit if these elements are reasonably covered anywhere in the introductory material, in any order or organization. Deduct only if there is essentially no background/context or no statement of scope or objectives."
+        },
+        {
+          "criterion": "Problem Statement / Motivation",
+          "max_points": 3,
+          "description": "The report clearly defines the core challenge or open problem the AI system addresses and explains its significance or real-world implications. Full credit if a recognizable problem statement and some justification of its importance are present, even if brief or merged with the introduction. Deduct only if the problem being solved is entirely absent or fundamentally unclear."
+        },
+        {
+          "criterion": "Methodology / Overall Approach",
+          "max_points": 4,
+          "description": "The report outlines the team's overall approach to solving the stated problem, including the end-to-end workflow or pipeline (e.g., from data acquisition through modeling to evaluation). Full credit for any coherent description of how the team went about addressing the problem; alternative or unconventional but defensible approaches earn full credit. Deduct only if no methodology or approach is described at all, or the described approach is fundamentally disconnected from the stated problem."
+        },
+        {
+          "criterion": "Implementation & Design (Models, Data, Training)",
+          "max_points": 6,
+          "description": "The report describes the actual system built: the chosen AI/ML model(s) and architecture, data sources and preprocessing steps, model training, and techniques used to improve performance (e.g., hyperparameter choices, optimization strategies, feature engineering, regularization, or other key steps). Deployment/integration is described only if applicable and is not required. Full credit if the model(s), the data handling, and the training/tuning work are all reasonably described; the level of detail need not be exhaustive. Deduct (small amounts) only when an entire required component (e.g., no mention of the data used, or no mention of the model(s) used, or no mention of any training/improvement effort) is completely absent."
+        },
+        {
+          "criterion": "Results & Evaluation",
+          "max_points": 5,
+          "description": "The report presents experimental outcomes using relevant quantitative metrics (tables, figures, or reported numbers) and, where appropriate, qualitative results (sample predictions, visualizations). Some comparison (to baselines, alternative models, or existing methods) and some analysis or interpretation of the results is present. Full credit if results are reported with metrics and at least some discussion or comparison, regardless of whether the results are strong or weak. Deduct only if no evaluation results are reported at all, if no metrics are given, or if the reported results are fundamentally inconsistent with the work described."
+        },
+        {
+          "criterion": "Discussion of Performance, Challenges & Limitations",
+          "max_points": 3,
+          "description": "The report reflects on the system's performance and approach, discussing challenges encountered (e.g., data quality issues, model tuning, computational constraints), limitations of the solution, and/or interpretability and explainability considerations. Full credit if any genuine reflection on limitations, difficulties, or interpretability appears, whether in a dedicated section or woven into results/conclusion. Deduct only if the report contains no acknowledgement whatsoever of any limitation, challenge, or caveat."
+        },
+        {
+          "criterion": "Conclusion, Future Work & References",
+          "max_points": 2,
+          "description": "The report concludes by summarizing findings and objectives achieved, noting open questions, and suggesting practical improvements or future work; and it includes a reference list of sources consulted with in-text citation of external material. Full credit if a conclusion with some forward-looking statement is present and a reference list exists. Minor citation-style inconsistencies are never penalized. Deduct only if the conclusion is entirely absent or if no references are provided at all."
+        }
+      ]
+    },
+    "2": {
+      "track": 2,
+      "track_name": "AI System Design Project (Analyze & Design)",
+      "criteria": [
+        {
+          "criterion": "IEEE Conference Format & Structure",
+          "max_points": 2,
+          "description": "The report is presented as an IEEE conference paper. Judge this on structural markers only: an abstract at the top, index terms/keywords, numbered sections and subsections, figure/table captions, and a numbered IEEE-style reference list. Award FULL credit if the report is broadly IEEE-like. A single missing element (for example index terms) is NOT a deduction. Deduct only if the report plainly disregards the template altogether - for example an unstructured essay with no sections and no formal reference list."
+        },
+        {
+          "criterion": "Abstract & Introduction/Background",
+          "max_points": 3,
+          "description": "The report includes an abstract that conveys the objectives, approach, and key findings, and an introduction/background section that situates the field, explains why it matters, introduces key concepts, and indicates the scope and objectives of the design study. Full credit whenever these elements are reasonably present in any form or ordering (they may be merged, renamed, or distributed across early sections). Deduct only if the abstract or the introductory context is entirely missing or is unrelated to the reported work. Never deduct for brevity, wording, or style."
+        },
+        {
+          "criterion": "Problem Statement / Motivation",
+          "max_points": 3,
+          "description": "The report identifies the core challenge or open problem the proposed AI system addresses and conveys why solving it matters (real-world, technical, societal, or research significance). Any reasonable articulation earns full credit, including one embedded in the introduction. Deduct only if no identifiable problem or motivation is stated anywhere, or the stated problem is fundamentally inconsistent with the rest of the report."
+        },
+        {
+          "criterion": "Methodology / Approach",
+          "max_points": 3,
+          "description": "The report outlines the team's approach to addressing the problem \u2014 for example, how papers were selected and reviewed, the criteria or process used for comparison, and how the analysis was translated into design decisions. Full credit for any defensible description of the process, however concise, and regardless of whether it is a separate section or explained within the literature review or design sections. Deduct only if there is no discernible account whatsoever of how the team went about the work."
+        },
+        {
+          "criterion": "Literature Review",
+          "max_points": 6,
+          "description": "The report reviews a set of notable/representative works (roughly 8\u201312; nearby counts are fully acceptable), presenting for the body of work such elements as problems addressed, methods, key findings, datasets or metrics used, strengths and limitations, and unresolved gaps, trends, or where current methods underperform. Technical depth (diagrams, equations, architecture sketches) is welcome but not required for full credit. Full credit if a substantive, critical review of prior work is present. Deduct only for clear substantive failures \u2014 e.g., the literature review is absent, covers only a token number of sources (e.g., 2\u20133), or is purely descriptive with no strengths/limitations/gaps discussion at all. Do not deduct merely for wanting more depth or more papers."
+        },
+        {
+          "criterion": "Comparison of Approaches",
+          "max_points": 4,
+          "description": "The report compares the reviewed approaches, discussing similarities and differences in performance, assumptions, architectures, model or design choices, and trade-offs. A comparative table, chart, or narrative synthesis all count equally. Full credit for any genuine cross-paper comparison. Deduct only if the report offers no comparison at all (i.e., papers are listed in isolation with no synthesis) or the comparison is fundamentally incorrect."
+        },
+        {
+          "criterion": "Proposed System Design",
+          "max_points": 6,
+          "description": "The report presents the proposed AI system concept and its design choices \u2014 architecture, components/workflow, model selection, data requirements, and intended evaluation metrics \u2014 supported by at least one architecture diagram, workflow illustration, or model schematic, and explains how the design builds on insights drawn from the reviewed literature. Full credit for any coherent, defensible design at whatever level of abstraction the team chose; alternative design philosophies are fully acceptable. Deduct only for clear substantive gaps \u2014 e.g., no proposed system is described, no visual/structural depiction of the system is provided anywhere, or the design has no discernible connection to the literature reviewed."
+        },
+        {
+          "criterion": "Conclusion & Future Work",
+          "max_points": 2,
+          "description": "The report closes with a summary of insights and objectives achieved, and notes limitations, remaining questions, or directions for future research or practical application. Full credit for any reasonable concluding discussion. Deduct only if there is no conclusion at all or no forward-looking element whatsoever."
+        },
+        {
+          "criterion": "References & Use of Sources",
+          "max_points": 1,
+          "description": "The report includes a reference list of the sources consulted and cites them in the text, using APA (or another consistent academic citation style). Full credit as long as sources are listed and traceable. Do not deduct for minor citation formatting inconsistencies, missing DOIs, or publication dates before 2020. Deduct only if there is essentially no reference list or sources are used without any attribution."
+        }
+      ]
+    }
+  }
+}
